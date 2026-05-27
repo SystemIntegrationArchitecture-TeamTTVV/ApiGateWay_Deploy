@@ -1,3 +1,7 @@
+COMMON_SERVICE_URL: https://starfish-app-5lg32.ondigitalocean.app
+MESSAGE_SERVICE_URL: https://plankton-app-f89jd.ondigitalocean.app
+AUTH_SERVICE_URL: https://auth-service-ih7gp.ondigitalocean.app
+
 spring:
   application:
     name: ApiGateway
@@ -157,7 +161,7 @@ spring:
                 fallbackUri: forward:/fallback/common
 
         - id: common-service-group-posts
-          uri: http://localhost:8081
+          uri: ${COMMON_SERVICE_URL:http://localhost:8081}
           predicates:
             - Path=/api/common/group-posts/**
           filters:
